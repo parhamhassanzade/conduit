@@ -22,7 +22,7 @@ const PageLink = ({ login }) => {
             <Link to={reactRoute.home}>
                 <Typography sx={{ color: "black", p: 1 }}>Home</Typography>
             </Link>
-            {!login &&
+            {!login && (
                 <>
                     <Link to={reactRoute.page.auth.signin}>
                         <Typography sx={{ color: "black", p: 1 }}>Sign In</Typography>
@@ -31,14 +31,19 @@ const PageLink = ({ login }) => {
                         <Typography sx={{ color: "black", p: 1 }}>Sign Up</Typography>
                     </Link>
                 </>
-            }
+            )}
+            {login && (
+                <Link to={reactRoute.page.rditProfile}>
+                    <Typography sx={{ color: "black", p: 1 }}>Edit Profile</Typography>
+                </Link>
+            )}
         </>
     );
 };
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Header() {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -59,9 +64,9 @@ function Header() {
     };
 
     const handleLogOut = () => {
-        dispatch(logOut(null))
-        navigate(reactRoute.home)
-    }
+        dispatch(logOut(null));
+        navigate(reactRoute.home);
+    };
 
     return (
         <AppBar position="sticky">
@@ -175,7 +180,14 @@ function Header() {
                                     <Typography textAlign="center">
                                         Hello {userInfo.username}
                                     </Typography>
-                                    <Typography textAlign="center" onClick={() => { handleLogOut() }}>logOut</Typography>
+                                    <Typography
+                                        textAlign="center"
+                                        onClick={() => {
+                                            handleLogOut();
+                                        }}
+                                    >
+                                        logOut
+                                    </Typography>
                                 </MenuItem>
                             </Menu>
                         </Box>

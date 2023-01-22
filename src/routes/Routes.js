@@ -4,7 +4,8 @@ const reactRoute = {
         auth: {
             signin: "/auth/signin",
             signup: "/auth/signup",
-        }
+        },
+        rditProfile:"/editprofile"
     }
 }
 
