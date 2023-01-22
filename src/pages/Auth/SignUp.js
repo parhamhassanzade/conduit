@@ -74,7 +74,7 @@ const SignUp = () => {
               }}
             >
               <TextField
-                sx={{ m: 1, width: "50ch" }}
+                sx={{ m: 1, width: "50vw" }}
                 id="outlined-basic"
                 label="Please enter your username..."
                 variant="outlined"
@@ -88,7 +88,7 @@ const SignUp = () => {
                 {errors.username && touched.username && errors.username}
               </Typography>
               <TextField
-                sx={{ m: 1, width: "50ch" }}
+                sx={{ m: 1, width: "50vw" }}
                 id="outlined-basic"
                 label="Please enter your Email..."
                 variant="outlined"
@@ -103,7 +103,7 @@ const SignUp = () => {
               </Typography>
 
               <TextField
-                sx={{ m: 1, width: "50ch" }}
+                sx={{ m: 1, width: "50vw" }}
                 id="outlined-basic"
                 label="please enter your password..."
                 variant="outlined"
