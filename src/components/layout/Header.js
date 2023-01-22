@@ -22,7 +22,7 @@ const PageLink = () => {
             <Link
                 to={reactRoute.home}
             >
-                <Typography sx={{ color: 'white', p: 1 }}>
+                <Typography sx={{ color: 'black', p: 1 }}>
 
                     Home
                 </Typography>
@@ -30,7 +30,7 @@ const PageLink = () => {
             <Link
                 to={reactRoute.page.auth.signin}
             >
-                <Typography sx={{ color: 'white', p: 1 }}>
+                <Typography sx={{ color: 'black', p: 1 }}>
 
                     Sign In
                 </Typography>
@@ -38,7 +38,7 @@ const PageLink = () => {
             <Link
                 to={reactRoute.page.auth.signup}
             >
-                <Typography sx={{ color: 'white', p: 1 }}>
+                <Typography sx={{ color: 'black', p: 1 }}>
 
                     Sign Up
                 </Typography>
@@ -146,7 +146,7 @@ function Header() {
 
                     </Box>
 
-                    <Box sx={{ flexGrow: 0 }}>
+                    {/* <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -174,7 +174,7 @@ function Header() {
                                 </MenuItem>
                             ))}
                         </Menu>
-                    </Box>
+                    </Box> */}
                 </Toolbar>
             </Container>
         </AppBar>
