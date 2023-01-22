@@ -21,10 +21,7 @@ const SignUp = () => {
         username: values.username,
       },
     });
-    // let data = JSON.stringify(user);
-    console.log(data);
     const res = await Request(apiRoutes.register, data, "POST");
-    console.log(res);
     if (res.status === 200) {
         toast.success("you are login successfully");
         dispatch(getUserInfo(res.data.user))

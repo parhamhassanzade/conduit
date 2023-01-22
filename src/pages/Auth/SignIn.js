@@ -2,16 +2,31 @@ import React from "react";
 import { Formik } from "formik";
 import TextField from "@mui/material/TextField";
 import { Button, Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Request } from "../../Api/Conduit.api";
 import reactRoute from "../../routes/Routes";
 import apiRoutes from "../../routes/apiRoute";
-
+import { toast } from "react-toastify";
+import { useSelector, useDispatch } from "react-redux";
+import { getUserInfo } from "../../redux/userInfo";
 const SignIn = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const signInhandler = async (values, actions) => {
-        let data = JSON.stringify(values);
-        const res = await Request(apiRoutes.login,data,"POST");
-        console.log(res);
+        let data = JSON.stringify({
+            user: {
+                email: values.email,
+                password: values.password,
+            },
+        });
+        const res = await Request(apiRoutes.login, data, "POST");
+        if (res.status === 200) {
+            toast.success("you are login successfully");
+            dispatch(getUserInfo(res.data.user));
+            navigate(reactRoute.home);
+        } else {
+            toast.error(res.data.errors);
+        }
     };
     return (
         <Box
