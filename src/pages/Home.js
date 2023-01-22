@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Request } from "../Api/Conduit.api";
 import apiRoutes from "../routes/apiRoute";
-import { Pagination, Box } from "@mui/material";
+import { Pagination, Box, List } from "@mui/material";
 import ArticleCard from "../components/ArticleCard";
 
 function Home() {
@@ -18,17 +18,21 @@ function Home() {
     getAllArticles();
   }, []);
   return (
-    <>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "90vh",
-          flexDirection: "column",
-        }}
-      >
-        <Box>
+    <Box
+      sx={{
+        margin: 5,
+      }}
+    >
+      <Box>
+        <List
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            width: "100%",
+            bgcolor: "background.paper",
+          }}
+        >
           {allArticles &&
             allArticles.map((item, index) => (
               <ArticleCard
@@ -38,10 +42,17 @@ function Home() {
                 author={item.author.username}
               />
             ))}
-        </Box>
+        </List>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <Pagination count={articlesCount && articlesCount} color="primary" />
       </Box>
-    </>
+    </Box>
   );
 }
 
