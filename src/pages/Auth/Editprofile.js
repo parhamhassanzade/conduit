@@ -29,7 +29,7 @@ const Editprofile = () => {
         if (res.status === 200) {
             toast.success("you are login successfully");
             dispatch(getUserInfo(res.data.user));
-            // navigate(reactRoute.home);
+            navigate(reactRoute.home);
         } else {
             toast.error(res.data.errors);
         }
