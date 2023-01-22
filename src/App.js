@@ -6,6 +6,8 @@ import reactRoute from './routes/Routes';
 import Home from './pages/Home';
 import SignUp from './pages/Auth/SignUp';
 import SignIn from './pages/Auth/SignIn';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (

@@ -10,7 +10,7 @@ import apiRoutes from "../../routes/apiRoute";
 const SignIn = () => {
     const signInhandler = async (values, actions) => {
         let data = JSON.stringify(values);
-        const res = await Request(apiRoutes.register,data,"POST");
+        const res = await Request(apiRoutes.login,data,"POST");
         console.log(res);
     };
     return (
