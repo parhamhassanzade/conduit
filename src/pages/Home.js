@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react";
 import { Request } from "../Api/Conduit.api";
 import apiRoutes from "../routes/apiRoute";
-import { Pagination, Box, List } from "@mui/material";
+import { Pagination, Box, List, Typography } from "@mui/material";
 import ArticleCard from "../components/ArticleCard";
 
 function Home() {
   const [articlesCount, setArticlesCount] = useState();
   const [allArticles, setAllArticle] = useState([]);
+  const [page, setPage] = useState(1);
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
+
   const getAllArticles = async () => {
-    let res = await Request(apiRoutes.articles);
+    let res = await Request(apiRoutes.articles + `?offset=${page - 1}`);
     console.log(res);
     setArticlesCount(res.data.articlesCount);
     setAllArticle(res.data.articles);
@@ -16,7 +21,7 @@ function Home() {
 
   useEffect(() => {
     getAllArticles();
-  }, []);
+  }, [page]);
   return (
     <Box
       sx={{
@@ -50,7 +55,9 @@ function Home() {
           justifyContent: "center",
         }}
       >
-        <Pagination count={articlesCount && articlesCount} color="primary" />
+
+
+        <Pagination count={articlesCount && articlesCount} page={page} color="primary" onChange={handleChange} />
       </Box>
     </Box>
   );

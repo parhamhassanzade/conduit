@@ -1,18 +1,15 @@
 import React from "react";
 
-import { Typography, Divider, ListItem, ListItemText } from "@mui/material";
+import { Typography, Divider, ListItem, ListItemText, Box } from "@mui/material";
 
 function ArticleCard({ title, author, description }) {
     return (
         <>
             <ListItem alignItems="flex-start">
-                {/* <ListItemAvatar>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              </ListItemAvatar> */}
                 <ListItemText
                     primary={title}
                     secondary={
-                        <React.Fragment>
+                        <Box>
                             <Typography
                                 sx={{ display: "inline" }}
                                 component="span"
@@ -21,8 +18,11 @@ function ArticleCard({ title, author, description }) {
                             >
                                 {author}
                             </Typography>
-                            {description}
-                        </React.Fragment>
+                            <Typography>
+
+                                {description}
+                            </Typography>
+                        </Box>
                     }
                 />
             </ListItem>
