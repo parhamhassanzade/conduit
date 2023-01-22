@@ -1,13 +1,12 @@
 import axios from "axios";
 import { Navigate } from "react-router-dom";
-import reactRoutes from "../utils/routes/reactRoutes";
-let apiAddress = "";
-if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
-    apiAddress = "https://api.realworld.io/api";
-} else {
-    //? production code
-    apiAddress = "https://api.realworld.io/api";
-}
+let apiAddress = "https://api.realworld.io/api";
+// if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
+//     apiAddress = "https://api.realworld.io/api";
+// } else {
+//     //? production code
+//     apiAddress = "https://api.realworld.io/api";
+// }
 // let token;
 // const getToken = async () => {
 //     token = await localStorage.getItem("clientToken");

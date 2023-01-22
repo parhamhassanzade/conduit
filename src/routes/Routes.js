@@ -3,9 +3,10 @@ const reactRoute = {
     page: {
         auth: {
             signin: "/auth/signin",
-            signup: "/auth/signup"
+            signup: "/auth/signup",
         }
     }
 }
 
 export default reactRoute
+
